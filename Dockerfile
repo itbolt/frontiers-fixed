@@ -38,6 +38,7 @@ RUN node --version
 RUN npm --version
 
 COPY . /home/app
+COPY .git /home/app/.git
 
 RUN mvn --no-transfer-progress -B -Pproduction -DskipTests -Dgcf.skip=true -Dgit-commit-id.skip=true -f /home/app/pom.xml clean package
 
