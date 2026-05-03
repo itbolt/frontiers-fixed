@@ -39,7 +39,7 @@ RUN npm --version
 
 COPY . /home/app
 
-RUN mvn --no-transfer-progress -B -Pproduction -DskipTests -Dgcf.skip=true -f /home/app/pom.xml clean package
+RUN mvn --no-transfer-progress -B -Pproduction -DskipTests -Dgcf.skip=true -Dgit-commit-id.skip=true -f /home/app/pom.xml clean package
 
 RUN ["chmod", "+x", "/home/app/startup.sh"]
 ENTRYPOINT ["/home/app/startup.sh","/home/app/target/frontiers-1.0.0.jar"]
